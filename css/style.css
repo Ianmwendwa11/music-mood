@@ -67,7 +67,7 @@ text-align: center;
     background: linear-gradient(135deg, orange, #5b548a);
 }
 
-/* Dropdown content (hidden by default) */
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -78,7 +78,7 @@ text-align: center;
     z-index: 1;
 }
 
-/* Dropdown links */
+
 .dropdown-content a {
     color: #333;
     padding: 12px 16px;
@@ -89,12 +89,12 @@ text-align: center;
     border-radius: 5px;
 }
 
-/* Hover effect on links */
+
 .dropdown-content a:hover {
     background: linear-gradient(135deg, orange, #5b548a);
 }
 
-/* Show dropdown when hovering over the button */
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
