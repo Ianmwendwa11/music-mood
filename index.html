@@ -16,30 +16,19 @@
             <div class="dropdown">
                 <button class="dropbtn">Select Mood ▼</button>
                 <div class="dropdown-content">
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('happy')">Happy</a>
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('sad')">Sad</a>
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('chill')">Chill</a>
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('romantic')">Romantic</a>
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('hype')">Hype</a>
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('healing')">Healing</a>
-                        <a href="javascript:void(0);" onclick="redirectToMoodPage('inlove')">In Love</a>
-
+                    <a href="moods/happy.html">Happy</a>
+                    <a href="moods/sad.html">Sad</a>
+                    <a href="moods/chill.html">Chill</a>
+                    <a href="moods/romantic.html">Romantic</a>
+                    <a href="moods/hype.html">Hype</a>
+                    <a href="moods/healing.html">Healing</a>
+                    <a href="moods/inlove.html">In Love</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Control Buttons -->
-    <div class="controls">
-        <button id="backButton" onclick="restorePage()">Back</button>
-    </div>
-
-    <!-- Song List -->
-    <ul id="song-list"></ul>
-
-    <!-- Scripts (Ensure These Files Exist) -->
-    <script src="spotifyAPI.js" type="module"></script>  <!-- Load Spotify API First -->
-    <script src="index.js"></script>  <!-- UI Logic -->
+    <!-- Scripts -->
+    <script src="index.js"></script>
 </body>
 </html>
-
