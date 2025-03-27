@@ -1,7 +1,5 @@
-// spotifyAPI.js
-
-const CLIENT_ID = "8c3ce0d1c89d4394b9f26d5324f0eeea";  // 🔥 Replace with your Spotify Client ID
-const CLIENT_SECRET = "28c075f810c743c18d133776db08b86e";  // 🔥 Replace with your Client Secret (Backend use)
+const CLIENT_ID = "";  // 🔥 Replace with your Spotify Client ID
+const CLIENT_SECRET = "";  // 🔥 Replace with your Client Secret (Backend use)
 const REDIRECT_URI = "http://localhost:5500/callback.html"; // 🔥 Replace if deploying online
 
 let accessToken = "";
@@ -24,43 +22,34 @@ function handleRedirect() {
     }
 }
 
-// Step 3: Get Featured Playlists (Example API Call)
-async function getFeaturedPlaylists() {
-    const storedToken = localStorage.getItem("spotify_access_token");
-    if (!storedToken) {
-        authenticateUser();
-        return;
+// Step 3: Get Access Token (Ensures Token is Always Available)
+function getAccessToken() {
+    if (!accessToken) {
+        accessToken = localStorage.getItem("spotify_access_token");
     }
-
-    try {
-        const response = await fetch("https://api.spotify.com/v1/browse/featured-playlists", {
-            headers: { "Authorization": `Bearer ${storedToken}` }
-        });
-        const data = await response.json();
-        return data.playlists.items; // Returns an array of playlists
-    } catch (error) {
-        console.error("Error fetching playlists:", error);
-    }
+    return accessToken;
 }
 
 // Step 4: Search for Songs by Mood
 async function searchTracksByMood(mood) {
-    const storedToken = localStorage.getItem("spotify_access_token");
-    if (!storedToken) {
+    const token = getAccessToken();
+    if (!token) {
         authenticateUser();
         return;
     }
 
     try {
-        const response = await fetch(`https://api.spotify.com/v1/search?q=${mood}&type=track&limit=10`, {
-            headers: { "Authorization": `Bearer ${storedToken}` }
+        const query = `mood:${mood} OR genre:${mood}`;
+        const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track&limit=10`, {
+            headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await response.json();
-        return data.tracks.items; // Returns an array of songs
+        return data.tracks.items || []; // Returns an array of songs
     } catch (error) {
         console.error("Error searching tracks:", error);
+        return [];
     }
 }
 
 // Export Functions
-export { authenticateUser, handleRedirect, getFeaturedPlaylists, searchTracksByMood };
+export { authenticateUser, handleRedirect, searchTracksByMood };

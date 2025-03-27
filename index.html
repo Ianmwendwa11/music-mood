@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOC<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,13 +16,13 @@
             <div class="dropdown">
                 <button class="dropbtn">Select Mood ▼</button>
                 <div class="dropdown-content">
-                    <a href="javascript:void(0);" onclick="changeBackground('happy')">Happy</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('sad')">Sad</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('chill')">Chill</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('romantic')">Romantic</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('hype')">Hype</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('healing')">Healing</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('inlove')">In Love</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('happy'); fetchMoodSongs('happy')">Happy</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('sad'); fetchMoodSongs('sad')">Sad</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('chill'); fetchMoodSongs('chill')">Chill</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('romantic'); fetchMoodSongs('romantic')">Romantic</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('hype'); fetchMoodSongs('hype')">Hype</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('healing'); fetchMoodSongs('healing')">Healing</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('inlove'); fetchMoodSongs('inlove')">In Love</a>
                 </div>
             </div>
         </div>
@@ -39,8 +39,9 @@
     <!-- Song List -->
     <ul id="song-list"></ul>
 
-    <!-- Scripts (Make Sure These Files Exist) -->
+    <!-- Scripts (Ensure These Files Exist) -->
+    <script src="spotifyAPI.js" type="module"></script>  <!-- Load Spotify API First -->
     <script src="index.js"></script>  <!-- UI Logic -->
-    <script src="spotifyAPI.js" type="module"></script>  <!-- Spotify API Logic -->
 </body>
 </html>
+
