@@ -7,29 +7,40 @@
     <title>MeloMood</title>
 </head>
 <body>
- <div id="content">
-    <h1 class="heading">
-        <span class="Multicolortext">MeloMood</span>
-    </h1>
-    <div class="card">
-        <h1 class="Mood-header">Select Your MeloMood</h1> 
-        <div class="dropdown">
-            <button class="dropbtn">Select Mood ▼</button>
-            <div class="dropdown-content">
-                <a href="javascript:void(0);" onclick="changeBackground('happy')">Happy</a>
-                <a href="javascript:void(0);" onclick="changeBackground('sad')">Sad</a>
-                <a href="javascript:void(0);" onclick="changeBackground('chill')">Chill</a>
-                <a href="javascript:void(0);" onclick="changeBackground('romantic')">Romantic</a>
-                <a href="javascript:void(0);" onclick="changeBackground('hype')">Hype</a>
-                <a href="javascript:void(0);" onclick="changeBackground('healing')">Healing</a>
-                <a href="javascript:void(0);" onclick="changeBackground('inlove')">In Love</a>
+    <div id="content">
+        <h1 class="heading">
+            <span class="Multicolortext">MeloMood</span>
+        </h1>
+        <div class="card">
+            <h1 class="Mood-header">Select Your MeloMood</h1> 
+            <div class="dropdown">
+                <button class="dropbtn">Select Mood ▼</button>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0);" onclick="changeBackground('happy')">Happy</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('sad')">Sad</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('chill')">Chill</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('romantic')">Romantic</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('hype')">Hype</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('healing')">Healing</a>
+                    <a href="javascript:void(0);" onclick="changeBackground('inlove')">In Love</a>
+                </div>
             </div>
         </div>
     </div>
- </div>
- <button id="backButton" onclick="restorePage()">Back</button>
 
-    <script src="index.js"></script> 
-    <script src="node.js"></script> 
+    <!-- Control Buttons -->
+    <div class="controls">
+        <button id="backButton" onclick="restorePage()">Back</button>
+        <button id="login-btn">Login to Spotify</button>
+        <input type="text" id="mood-input" placeholder="Enter a mood (e.g., happy)">
+        <button id="get-mood-music">Find Songs</button>
+    </div>
+
+    <!-- Song List -->
+    <ul id="song-list"></ul>
+
+    <!-- Scripts (Make Sure These Files Exist) -->
+    <script src="index.js"></script>  <!-- UI Logic -->
+    <script src="spotifyAPI.js" type="module"></script>  <!-- Spotify API Logic -->
 </body>
 </html>

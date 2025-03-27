@@ -93,3 +93,21 @@ function displaySongs(songs) {
    
     document.body.appendChild(songContainer);
 }
+
+// script.js
+import { authenticateUser, getFeaturedPlaylists, searchTracksByMood } from "./spotifyAPI.js";
+
+document.getElementById("login-btn").addEventListener("click", authenticateUser);
+document.getElementById("get-mood-music").addEventListener("click", async () => {
+    const mood = document.getElementById("mood-input").value;
+    const songs = await searchTracksByMood(mood);
+    
+    const songList = document.getElementById("song-list");
+    songList.innerHTML = ""; // Clear previous results
+
+    songs.forEach(song => {
+        const li = document.createElement("li");
+        li.innerHTML = `<img src="${song.album.images[0].url}" width="50"> ${song.name} - ${song.artists[0].name}`;
+        songList.appendChild(li);
+    });
+});
