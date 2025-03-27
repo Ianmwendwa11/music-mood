@@ -1,4 +1,4 @@
-<!DOC<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,13 +16,14 @@
             <div class="dropdown">
                 <button class="dropbtn">Select Mood ▼</button>
                 <div class="dropdown-content">
-                    <a href="javascript:void(0);" onclick="changeBackground('happy'); fetchMoodSongs('happy')">Happy</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('sad'); fetchMoodSongs('sad')">Sad</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('chill'); fetchMoodSongs('chill')">Chill</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('romantic'); fetchMoodSongs('romantic')">Romantic</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('hype'); fetchMoodSongs('hype')">Hype</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('healing'); fetchMoodSongs('healing')">Healing</a>
-                    <a href="javascript:void(0);" onclick="changeBackground('inlove'); fetchMoodSongs('inlove')">In Love</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('happy')">Happy</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('sad')">Sad</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('chill')">Chill</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('romantic')">Romantic</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('hype')">Hype</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('healing')">Healing</a>
+                        <a href="javascript:void(0);" onclick="redirectToMoodPage('inlove')">In Love</a>
+
                 </div>
             </div>
         </div>
@@ -31,9 +32,6 @@
     <!-- Control Buttons -->
     <div class="controls">
         <button id="backButton" onclick="restorePage()">Back</button>
-        <button id="login-btn">Login to Spotify</button>
-        <input type="text" id="mood-input" placeholder="Enter a mood (e.g., happy)">
-        <button id="get-mood-music">Find Songs</button>
     </div>
 
     <!-- Song List -->
