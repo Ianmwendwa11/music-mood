@@ -3,12 +3,12 @@ function changeBackground(mood) {
     
     
     const moodBackgrounds = {
-        happy: "url('images/happy.jpg')",
+        happy: "url('images/happy.jpeg')",
         sad: "url('images/sad.jpg')",
-        chill: "url('images/chill.jpg')",
-        romantic: "url('images/romantic.jpg')",
-        hype: "url('images/hype.jpg')",
-        healing: "url('images/healing.jpg')",
+        chill: "url('images/chill.jpeg')",
+        romantic: "url('images/romantic.jpeg')",
+        hype: "url('images/hypiano.jpg')",
+        healing: "url('images/healing.jpeg')",
         "in love": "url('images/inlove.jpg')"
     };
 
