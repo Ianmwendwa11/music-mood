@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Happy Mood - MeloMood</title>
+</head>
+<body class="happy-bg">
+    <div class="mood-container">
+        <h1>Welcome to the Happy Mood! 😊</h1>
+        <p>Enjoy your happy vibes and let the music uplift you!</p>
+        <button onclick="goBack()">⬅ Back to Main Page</button>
+    </div>
+
+    <script>
+        function goBack() {
+            sessionStorage.setItem("visitedMoodPage", "true");
+            window.location.href = "../index.html"; 
+        }
+    </script>
+</body>
+</html>
+

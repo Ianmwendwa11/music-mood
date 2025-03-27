@@ -237,6 +237,62 @@
     }
 
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s ease-in-out;
+}
+
+
+.happy-bg {
+    background-image: url('../images/happy.jpeg');
+}
+
+.sad-bg {
+    background-image: url('../images/sad.jpg');
+}
+
+.chill-bg {
+    background-image: url('../images/chill.jpeg');
+}
+
+.romantic-bg {
+    background-image: url('../images/romantic.jpeg');
+}
+
+.hype-bg {
+    background-image: url('../images/hypiano.jpg');
+}
+
+.healing-bg {
+    background-image: url('../images/healing.jpeg');
+}
+
+.inlove-bg {
+    background-image: url('../images/inlove.jpg');
+}
+
+.mood-container {
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
 
 
 
