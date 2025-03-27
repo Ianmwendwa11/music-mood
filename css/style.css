@@ -164,6 +164,24 @@ a:hover::after {
 }
 
 
+#backButton {
+    display: none;  
+    position: fixed;
+    bottom: 20px;  
+    right: 20px;    
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#backButton:hover {
+    background: rgba(255, 255, 255, 1);
+}
 
 
 
