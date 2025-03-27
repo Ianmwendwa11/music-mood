@@ -8,3 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function goBack() {
+    sessionStorage.removeItem("visitedMoodPage");
+    window.location.href = "index.html"; 
+}
