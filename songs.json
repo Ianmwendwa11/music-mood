@@ -1,0 +1,86 @@
+{
+    "happy": [
+      { "title": "Happy", "artist": "Pharrell Williams" },
+      { "title": "Can't Stop the Feeling!", "artist": "Justin Timberlake" },
+      { "title": "Uptown Funk", "artist": "Mark Ronson ft. Bruno Mars" },
+      { "title": "Shake It Off", "artist": "Taylor Swift" },
+      { "title": "Good as Hell", "artist": "Lizzo" },
+      { "title": "Walking on Sunshine", "artist": "Katrina & The Waves" },
+      { "title": "Sugar", "artist": "Maroon 5" },
+      { "title": "I Wanna Dance with Somebody", "artist": "Whitney Houston" },
+      { "title": "Best Day of My Life", "artist": "American Authors" },
+      { "title": "Lovely Day", "artist": "Bill Withers" }
+    ],
+    "sad": [
+      { "title": "Someone Like You", "artist": "Adele" },
+      { "title": "IDFC", "artist": "blackbear" },
+      { "title": "Falling", "artist": "Trevor Daniel" },
+      { "title": "Lucid Dreams", "artist": "Juice WRLD" },
+      { "title": "Ocean Eyes", "artist": "Billie Eilish" },
+      { "title": "Jealous", "artist": "Labrinth" },
+      { "title": "when the party's over", "artist": "Billie Eilish" },
+      { "title": "All Girls Are The Same", "artist": "Juice WRLD" },
+      { "title": "SLOW DANCING IN THE DARK", "artist": "Joji" },
+      { "title": "Fix You", "artist": "Coldplay" }
+    ],
+    "chill": [
+      { "title": "Sunflower", "artist": "Post Malone & Swae Lee" },
+      { "title": "Put It All On Me", "artist": "Ed Sheeran ft. Ella Mai" },
+      { "title": "Location", "artist": "Khalid" },
+      { "title": "Stay", "artist": "The Kid LAROI & Justin Bieber" },
+      { "title": "Lo-Fi Chill Beats", "artist": "Chillhop Music" },
+      { "title": "Breathe", "artist": "Télépopmusik" },
+      { "title": "Coffee", "artist": "Beabadoobee" },
+      { "title": "Electric Feel", "artist": "MGMT" },
+      { "title": "Weightless", "artist": "Marconi Union" },
+      { "title": "Daydreaming", "artist": "Radiohead" }
+    ],
+    "romantic": [
+      { "title": "Perfect", "artist": "Ed Sheeran" },
+      { "title": "Thinking Out Loud", "artist": "Ed Sheeran" },
+      { "title": "All of Me", "artist": "John Legend" },
+      { "title": "Can't Help Falling in Love", "artist": "Elvis Presley" },
+      { "title": "Love Story", "artist": "Taylor Swift" },
+      { "title": "Unchained Melody", "artist": "The Righteous Brothers" },
+      { "title": "Endless Love", "artist": "Lionel Richie & Diana Ross" },
+      { "title": "Make You Feel My Love", "artist": "Adele" },
+      { "title": "Just the Way You Are", "artist": "Bruno Mars" },
+      { "title": "I Will Always Love You", "artist": "Whitney Houston" }
+    ],
+    "hype": [
+      { "title": "Ke Star Remix", "artist": "Focalistic ft. Davido, Vigro Deep" },
+      { "title": "John Wick", "artist": "De Mthuda ft. Njelic" },
+      { "title": "Woza", "artist": "Mr JazziQ ft. Kabza De Small" },
+      { "title": "Sponono", "artist": "Kabza De Small ft. Wizkid, Burna Boy" },
+      { "title": "Banyana", "artist": "DJ Maphorisa & Tyler ICU" },
+      { "title": "Vula Mlomo", "artist": "Musa Keys" },
+      { "title": "Umsebenzi Wethu", "artist": "Busta 929 & Mpura" },
+      { "title": "Izolo", "artist": "DJ Maphorisa & Tyler ICU ft. Daliwonga" },
+      { "title": "Ngixolele", "artist": "Busta 929 ft. Boohle" },
+      { "title": "Paris", "artist": "Q-Mark, TpZee & Afriikan Papi" }
+    ],
+   "in_love": [
+    { "title": "Into You", "artist": "Ariana Grande" },
+    { "title": "No Air", "artist": "Jordin Sparks ft. Chris Brown" },
+    { "title": "Kiss Me", "artist": "Ed Sheeran" },
+    { "title": "I Don't Want to Miss a Thing", "artist": "Aerosmith" },
+    { "title": "You Belong with Me", "artist": "Taylor Swift" },
+    { "title": "Die for You", "artist": "The Weeknd" },
+    { "title": "Tattooed Heart", "artist": "Ariana Grande" },
+    { "title": "If I Ain't Got You", "artist": "Alicia Keys" },
+    { "title": "Adore You", "artist": "Harry Styles" },
+    { "title": "Best Part", "artist": "Daniel Caesar ft. H.E.R." }
+  ],
+  "healing": [
+    { "title": "Breathin", "artist": "Ariana Grande" },
+    { "title": "Scars to Your Beautiful", "artist": "Alessia Cara" },
+    { "title": "Rise Up", "artist": "Andra Day" },
+    { "title": "Stronger", "artist": "Kelly Clarkson" },
+    { "title": "Keep Your Head Up", "artist": "Andy Grammer" },
+    { "title": "Who Says", "artist": "Selena Gomez & The Scene" },
+    { "title": "Roar", "artist": "Katy Perry" },
+    { "title": "Unwritten", "artist": "Natasha Bedingfield" },
+    { "title": "Good Days", "artist": "SZA" },
+    { "title": "The Climb", "artist": "Miley Cyrus" }
+  ]
+}
