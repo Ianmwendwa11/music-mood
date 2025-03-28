@@ -73,13 +73,14 @@
     <span class="hearts" style="left: 80%; animation-delay: 2s;">❤️</span>
 
     <button class="back-btn" onclick="goBack()">← Back to Main</button>
-
+    <button id="refresh-songs">Refresh Songs</button>
+    <div id="song-list"></div>
+    
     <script>
         function goBack() {
             window.location.href = "../index.html";
         }
     </script>
-    <script src="spotifyAPI.js" type="module"></script>
-
+  <script src="index.js"></script>  
 </body>
 </html>
