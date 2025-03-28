@@ -10,9 +10,10 @@
     <div class="mood-container">
         <h1>Feeling Down? 😢💔</h1>
         <p>It’s okay to be sad. Here’s some music to match your mood.</p>
-        <div id="song-list">
-            <p>Loading sad songs... 🎵</p>
+        <div id="song-list" class="song-container">
+            <p>Loading mood-based songs...</p>
         </div>
+        
 
         <button onclick="goBack()">⬅ Back to Main Page</button>
     </div>
@@ -22,5 +23,7 @@
             window.location.href = "../index.html"; 
         }
     </script>
+    <script src="spotifyAPI.js" type="module"></script>
+
 </body>
 </html>

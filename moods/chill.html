@@ -47,7 +47,10 @@
 <body>
     <h1>🌙 Chill Vibes 🌿</h1>
     <p>Relax, unwind, and let the music take you away...</p>
-
+    <div id="song-list" class="song-container">
+        <p>Loading mood-based songs...</p>
+    </div>
+    
     <button class="back-btn" onclick="goBack()">← Back to Main</button>
 
     <script>
@@ -55,5 +58,7 @@
             window.location.href = "../index.html";
         }
     </script>
+    <script src="spotifyAPI.js" type="module"></script>
+
 </body>
 </html>

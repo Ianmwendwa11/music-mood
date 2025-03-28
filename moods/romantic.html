@@ -62,7 +62,10 @@
 <body>
     <h1>💕 Romantic Vibes 💖</h1>
     <p>Let love fill the air, one song at a time...</p>
-
+    <div id="song-list" class="song-container">
+        <p>Loading mood-based songs...</p>
+    </div>
+    
     <span class="hearts">❤️</span>
     <span class="hearts" style="left: 20%; animation-delay: 0.5s;">💖</span>
     <span class="hearts" style="left: 40%; animation-delay: 1s;">💞</span>
@@ -76,5 +79,7 @@
             window.location.href = "../index.html";
         }
     </script>
+    <script src="spotifyAPI.js" type="module"></script>
+
 </body>
 </html>

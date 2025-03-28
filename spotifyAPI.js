@@ -17,15 +17,14 @@ async function getAccessToken() {
     accessToken = data.access_token;
 }
 
-// Search for Songs Based on Mood
+
 async function searchTracksByMood(mood) {
     if (!accessToken) await getAccessToken();
 
-    let query = mood;  
-    if (mood === "hype") query = "amapiano"; // Force Amapiano for Hype mood
+    const query = mood; 
 
     const response = await fetch(
-        `https://api.spotify.com/v1/search?q=${query}&t// Fetch Spotify Access Tokenype=track&limit=5`,
+        `https://api.spotify.com/v1/search?q=${query}&type=track&limit=5`,
         {
             headers: { Authorization: `Bearer ${accessToken}` },
         }
@@ -36,8 +35,10 @@ async function searchTracksByMood(mood) {
 }
 
 
+
+
 async function displaySongs(mood) {
-    const songContainer = document.getElementById("song-container");
+    const songContainer = document.getElementById("song-list");
     songContainer.innerHTML = `<p>Loading ${mood} songs...</p>`;
 
     const songs = await searchTracksByMood(mood);

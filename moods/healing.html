@@ -66,7 +66,10 @@
     <span class="lotus" style="left: 85%;">🌿</span>
 
 
-    <div class="songlist"></div>
+    <div id="song-list" class="song-container">
+        <p>Loading mood-based songs...</p>
+    </div>
+    
 
 
     <button class="back-btn" onclick="goBack()">← Back to Main</button>
@@ -76,5 +79,7 @@
             window.location.href = "../index.html";
         }
     </script>
+    <script src="spotifyAPI.js" type="module"></script>
+
 </body>
 </html>
