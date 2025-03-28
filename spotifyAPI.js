@@ -1,55 +1,75 @@
-const CLIENT_ID = "";  // 🔥 Replace with your Spotify Client ID
-const CLIENT_SECRET = "";  // 🔥 Replace with your Client Secret (Backend use)
-const REDIRECT_URI = "http://localhost:5500/callback.html"; // 🔥 Replace if deploying online
-
+const clientId = "8c3ce0d1c89d4394b9f26d5324f0eeea";
+const clientSecret = "28c075f810c743c18d133776db08b86e";
 let accessToken = "";
 
-// Step 1: Redirect User for Authentication
-function authenticateUser() {
-    const authURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=user-read-private user-read-email playlist-read-private`;
-    window.location.href = authURL;
+
+async function getAccessToken() {
+    const response = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": "Basic " + btoa(clientId + ":" + clientSecret),
+        },
+        body: "grant_type=client_credentials",
+    });
+
+    const data = await response.json();
+    accessToken = data.access_token;
 }
 
-// Step 2: Extract Access Token from Redirect URL
-function handleRedirect() {
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    accessToken = params.get("access_token");
-
-    if (accessToken) {
-        localStorage.setItem("spotify_access_token", accessToken);
-        window.location.href = "index.html"; // Redirect back to main page
-    }
-}
-
-// Step 3: Get Access Token (Ensures Token is Always Available)
-function getAccessToken() {
-    if (!accessToken) {
-        accessToken = localStorage.getItem("spotify_access_token");
-    }
-    return accessToken;
-}
-
-// Step 4: Search for Songs by Mood
+// Search for Songs Based on Mood
 async function searchTracksByMood(mood) {
-    const token = getAccessToken();
-    if (!token) {
-        authenticateUser();
+    if (!accessToken) await getAccessToken();
+
+    let query = mood;  
+    if (mood === "hype") query = "amapiano"; // Force Amapiano for Hype mood
+
+    const response = await fetch(
+        `https://api.spotify.com/v1/search?q=${query}&t// Fetch Spotify Access Tokenype=track&limit=5`,
+        {
+            headers: { Authorization: `Bearer ${accessToken}` },
+        }
+    );
+
+    const data = await response.json();
+    return data.tracks.items;
+}
+
+
+async function displaySongs(mood) {
+    const songContainer = document.getElementById("song-container");
+    songContainer.innerHTML = `<p>Loading ${mood} songs...</p>`;
+
+    const songs = await searchTracksByMood(mood);
+
+    songContainer.innerHTML = ""; // 
+
+    if (songs.length === 0) {
+        songContainer.innerHTML = `<p>No songs found for this mood. Try refreshing!</p>`;
         return;
     }
 
-    try {
-        const query = `mood:${mood} OR genre:${mood}`;
-        const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track&limit=10`, {
-            headers: { "Authorization": `Bearer ${token}` }
-        });
-        const data = await response.json();
-        return data.tracks.items || []; // Returns an array of songs
-    } catch (error) {
-        console.error("Error searching tracks:", error);
-        return [];
-    }
+    songs.forEach((song) => {
+        const songCard = document.createElement("div");
+        songCard.classList.add("song-card");
+
+        songCard.innerHTML = `
+            <img src="${song.album.images[0].url}" alt="${song.name}" class="album-cover">
+            <div class="song-info">
+                <p class="song-title">${song.name}</p>
+                <p class="song-artist">${song.artists.map((artist) => artist.name).join(", ")}</p>
+            </div>
+            <a href="${song.external_urls.spotify}" target="_blank" class="play-button">▶ Play</a>
+        `;
+
+        songContainer.appendChild(songCard);
+    });
 }
 
-// Export Functions
-export { authenticateUser, handleRedirect, searchTracksByMood };
+
+document.getElementById("refresh-btn").addEventListener("click", () => {
+    const mood = document.body.getAttribute("data-mood")
+    displaySongs(mood);
+});
+
+export { displaySongs };
