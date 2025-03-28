@@ -16,7 +16,7 @@ async function fetchSongsFromLocalServer(mood) {
 }
 
 function getRandomSongs(songs) {
-    return songs.sort(() => 0.5 - Math.random()).slice(0, 5);
+    return [...songs].sort(() => 0.5 - Math.random()).slice(0, 5);
 }
 
 async function displaySongs(mood) {
@@ -24,6 +24,7 @@ async function displaySongs(mood) {
     songsContainer.innerHTML = "<p>Loading songs...</p>";
 
     const songs = await fetchSongsFromLocalServer(mood);
+    console.log(`Fetched songs for ${mood}:`, songs);
 
     if (!songs || songs.length === 0) {
         songsContainer.innerHTML = "<p>No songs available for this mood.</p>";
@@ -31,6 +32,7 @@ async function displaySongs(mood) {
     }
 
     const randomSongs = getRandomSongs(songs);
+    console.log(`Randomly selected songs:`, randomSongs);
     songsContainer.innerHTML = "";
 
     randomSongs.forEach(song => {
@@ -53,10 +55,13 @@ async function handleMoodPage() {
 document.addEventListener("DOMContentLoaded", () => {
     handleMoodPage();
 
-    document.getElementById("refresh-songs").addEventListener("click", async () => {
-        const mood = getMoodFromURL();
-        if (mood) await displaySongs(mood);
-    });
+    const refreshButton = document.getElementById("refresh-songs");
+    if (refreshButton) {
+        refreshButton.addEventListener("click", async () => {
+            const mood = getMoodFromURL();
+            if (mood) await displaySongs(mood);
+        });
+    }
 });
 
 function goBack() {
