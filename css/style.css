@@ -249,52 +249,72 @@ body {
 
 .happy-bg {
     background-image: url('../images/happy.jpeg');
+    animation: pulseGlow 3s infinite alternate;
 }
 
 .sad-bg {
     background-image: url('../images/sad.jpg');
+    filter: grayscale(80%);
+    animation: slowFade 5s infinite alternate;
+
 }
 
 .chill-bg {
     background-image: url('../images/chill.jpeg');
+    animation: smoothSlide 10s infinite linear;
+
 }
 
 .romantic-bg {
     background-image: url('../images/romantic.jpeg');
+    animation: heartBeat 4s infinite ease-in-out;
 }
 
 .hype-bg {
     background-image: url('../images/hypiano.jpg');
+    animation: flashEffect 1.5s infinite alternate;
 }
 
 .healing-bg {
     background-image: url('../images/healing.jpeg');
+    animation: gentleFlow 6s infinite alternate;
 }
 
 .inlove-bg {
     background-image: url('../images/inlove.jpg');
+    animation: sparkleEffect 3s infinite;
 }
 
 .mood-container {
-    text-align: center;
     padding: 50px;
-    color: white;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
 }
 
 button {
-    background-color: rgba(255, 255, 255, 0.8);
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
+    font-size: 18px;
     cursor: pointer;
-    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: white;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-size: cover;
@@ -321,7 +341,42 @@ button:hover {
     background-color: rgba(255, 255, 255, 1);
 }
 
+@keyframes pulseGlow {
+    from { box-shadow: 0px 0px 20px rgba(255, 223, 0, 0.5); }
+    to { box-shadow: 0px 0px 50px rgba(255, 223, 0, 1); }
+}
 
+@keyframes slowFade {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+@keyframes smoothSlide {
+    from { background-position: left; }
+    to { background-position: right; }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes flashEffect {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.4); }
+}
+
+@keyframes gentleFlow {
+    from { filter: blur(2px); }
+    to { filter: blur(0px); }
+}
+
+@keyframes sparkleEffect {
+    0% { text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); }
+    50% { text-shadow: 0px 0px 20px rgba(255, 255, 255, 1); }
+    100% { text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); }
+}
 
 
 
