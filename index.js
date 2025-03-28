@@ -1,30 +1,15 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    console.log("MeloMood App Loaded!");
-
-    // Attach event listeners for mood selection links
-    document.querySelectorAll(".dropdown-content a").forEach(link => {
-        link.addEventListener("click", () => {
-            const mood = link.innerText.toLowerCase();
-            console.log(`Navigating to ${mood} mood page...`);
-            handleMoodSelection(mood);
-        });
-    });
-
-    // Fetch songs initially
-    await fetchSongs();
-});
-
-// Function to go back to the homepage
-function goBack() {
-    sessionStorage.removeItem("visitedMoodPage");
-    window.location.href = "index.html"; 
+// Function to get the mood from the current page URL
+function getMoodFromURL() {
+    const path = window.location.pathname; // Example: "/happy.html"
+    const mood = path.split("/").pop().replace(".html", ""); // Extract "happy"
+    return mood;
 }
 
-// API URL for fetching songs
-const API_URL = "https://your-vercel-project.vercel.app/songs.json"; // Replace with your actual Vercel URL
+// API URL for fetching songs (Replace with your actual Vercel URL)
+const API_URL = "https://your-vercel-project.vercel.app/songs.json"; 
 let allSongs = {}; // Stores all songs data
 
-// Function to fetch all songs from JSON
+// Function to fetch songs from JSON
 async function fetchSongs() {
     try {
         const response = await fetch(API_URL);
@@ -35,45 +20,58 @@ async function fetchSongs() {
     }
 }
 
-// Function to get 5 random songs for a mood
+// Function to get 5 random songs from a mood category
 function getRandomSongs(mood) {
     if (!allSongs[mood]) {
         console.error(`No songs found for mood: ${mood}`);
         return [];
     }
-
     return [...allSongs[mood]].sort(() => 0.5 - Math.random()).slice(0, 5);
 }
 
-// Function to display songs dynamically
+// Function to display songs on the page
 function displaySongs(mood) {
     const songsContainer = document.getElementById("songs-list");
     songsContainer.innerHTML = ""; // Clear previous songs
 
-    const songs = getRandomSongs(mood);
-    if (songs.length === 0) {
+    if (!allSongs[mood]) {
         songsContainer.innerHTML = "<p>No songs available for this mood.</p>";
         return;
     }
 
+    const songs = getRandomSongs(mood);
     songs.forEach(song => {
         const songDiv = document.createElement("div");
         songDiv.innerHTML = `
-            <p>${song.title} - ${song.artist}</p>
-            <a href="${song.url}" target="_blank">Listen</a>
+            <p><strong>${song.title}</strong> - ${song.artist}</p>
+            <a href="${song.url}" target="_blank">🎵 Listen</a>
         `;
         songsContainer.appendChild(songDiv);
     });
 }
 
-// Function to handle mood selection
-function handleMoodSelection(mood) {
-    console.log(`Displaying songs for mood: ${mood}`);
-    displaySongs(mood);
+// Function to handle mood selection and display songs
+async function handleMoodPage() {
+    const mood = getMoodFromURL(); // Get the mood from the URL
+    if (mood) {
+        await fetchSongs(); // Fetch all songs
+        displaySongs(mood); // Display songs for this mood
+    }
 }
 
-// Function to refresh songs (loads new random set)
-document.getElementById("refresh-songs").addEventListener("click", () => {
-    const selectedMood = document.querySelector(".active-mood")?.dataset.mood;
-    if (selectedMood) displaySongs(selectedMood);
+// Event listener for refreshing songs
+document.addEventListener("DOMContentLoaded", () => {
+    handleMoodPage(); // Load songs when the page loads
+
+    document.getElementById("refresh-songs").addEventListener("click", () => {
+        const mood = getMoodFromURL();
+        if (mood) displaySongs(mood);
+    });
 });
+
+// Function to go back to homepage
+function goBack() {
+    sessionStorage.removeItem("visitedMoodPage");
+    window.location.href = "index.html"; 
+}
+        
