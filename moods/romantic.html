@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Romantic Vibes - MeloMood</title>
+    <style>
+        body {
+            background-image: url('../images/romantic.jpeg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Dancing Script', cursive;
+            color: #ffdde1;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff7eb3;
+            text-shadow: 2px 2px 10px rgba(255, 182, 193, 0.8);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .hearts {
+            position: absolute;
+            animation: float 5s infinite ease-in-out;
+            color: #ff7eb3;
+            font-size: 2rem;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>💕 Romantic Vibes 💖</h1>
+    <p>Let love fill the air, one song at a time...</p>
+
+    <span class="hearts">❤️</span>
+    <span class="hearts" style="left: 20%; animation-delay: 0.5s;">💖</span>
+    <span class="hearts" style="left: 40%; animation-delay: 1s;">💞</span>
+    <span class="hearts" style="left: 60%; animation-delay: 1.5s;">💓</span>
+    <span class="hearts" style="left: 80%; animation-delay: 2s;">❤️</span>
+
+    <button class="back-btn" onclick="goBack()">← Back to Main</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>

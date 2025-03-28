@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>In Love - MeloMood</title>
+    <style>
+        body {
+            background-image: url('../images/inlove.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Playfair Display', serif;
+            color: #ffb3c1;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 15px #ff69b4;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-hearts {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff69b4;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>💓 In Love 💞</h1>
+    <p>Feel the butterflies, the warmth, the magic of love.</p>
+
+    <span class="floating-hearts" style="left: 10%;">❤️</span>
+    <span class="floating-hearts" style="left: 40%; animation-delay: 0.8s;">💘</span>
+    <span class="floating-hearts" style="left: 70%; animation-delay: 1.2s;">💕</span>
+
+    <button class="back-btn" onclick="goBack()">← Back to Main</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>

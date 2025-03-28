@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hype Vibes - Amapiano</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: url('../images/hypiano.jpg') no-repeat center center/cover;
+            color: #FFD700;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            animation: pulseBg 5s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            0% { text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 2px 2px 30px rgba(255, 215, 0, 1); }
+        }
+
+        .dj-deck {
+            width: 150px;
+            height: 150px;
+            background: url('../images/dj-deck.png') no-repeat center center/cover;
+            display: inline-block;
+            margin: 20px;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .song-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .song-item {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            color: white;
+            width: 80%;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .song-item:hover {
+            transform: scale(1.1);
+        }
+
+        .back-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            background: #FFD700;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+        
+        }
+
+        .back-button:hover {
+            background: #FFA500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Amapiano Energy ⚡🔥</h1>
+        <div class="dj-deck"></div>
+        <div class="song-list">
+            
+        </div>
+        <button class="back-button" onclick="window.location.href='../index.html'">⬅ Back to Main</button>
+    </div>
+</body>
+</html>
