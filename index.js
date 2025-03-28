@@ -32,28 +32,59 @@ async function displaySongs() {
     }
 
     const songList = document.getElementById("song-list");
-    if (!songList) {
-        console.error("Song list container not found.");
+    const loadingIndicator = document.getElementById("loading");
+
+    if (!songList || !loadingIndicator) {
+        console.error("Song list container or loading indicator not found.");
         return;
     }
 
+    // Show loading spinner
+    loadingIndicator.style.display = "block";
+    songList.innerHTML = "";  
+
+    // Fetch songs from server
     const songs = await fetchSongsFromLocalServer(mood);
+
+    // Hide loading spinner
+    loadingIndicator.style.display = "none";
+
     if (songs.length === 0) {
         songList.innerHTML = "<p>No songs available for this mood.</p>";
         return;
     }
 
-    songList.innerHTML = ""; // Clear previous songs
+    // Ensure songs are unique before displaying
+    const uniqueSongs = getRandomSongs(songs);
 
-    getRandomSongs(songs).forEach(song => {
+    uniqueSongs.forEach((song, index) => {
         const songDiv = document.createElement("div");
+        songDiv.classList.add("song-item");
+        songDiv.style.opacity = "0";  
+
+        
+        const albumCover = song.cover ? song.cover : 'https://via.placeholder.com/100x100?text=No+Cover';
+
         songDiv.innerHTML = `
-            <p><strong>${song.title}</strong> - ${song.artist}</p>
-            <a href="${song.url}" target="_blank">🎵 Listen</a>
+            <img src="${albumCover}" alt="Album Cover" class="song-cover">
+            <div class="song-details">
+                <p class="song-title">${song.title}</p>
+                <p class="song-artist">by ${song.artist}</p>
+                <a href="${song.url}" target="_blank" class="listen-link">🎵 Listen</a>
+            </div>
         `;
+
         songList.appendChild(songDiv);
+
+      
+        setTimeout(() => {
+            songDiv.style.opacity = "1";
+            songDiv.style.transform = "translateY(0)";
+        }, index * 150);
     });
 }
+
+
 
 async function handleMoodPage() {
     await displaySongs();

@@ -379,5 +379,70 @@ button:hover {
 }
 
 
+.mood-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.happy .mood-button {
+    background: #ff9800;
+    color: white;
+}
+
+.happy .mood-button:hover {
+    background: #ff5722;
+    transform: scale(1.05);
+}
+
+
+.sad .mood-button {
+    background: #607d8b;
+    color: white;
+}
+
+.sad .mood-button:hover {
+    background: #78909c;
+    transform: scale(1.05);
+}
+
+
+.hype .mood-button {
+    background: #ff4081;
+    color: white;
+}
+
+.hype .mood-button:hover {
+    background: #f50057;
+    transform: scale(1.05);
+}
+
+/* Loading animation */
+#loading {
+    display: none;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    animation: fadeIn 1s infinite alternate;
+}
+
+/* Album cover fallback */
+.song-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #222; /* Placeholder color */
+}
+
 
 
