@@ -1,6 +1,11 @@
 function getMoodFromURL() {
+    console.log("Current URL:", window.location.href);
+
     const path = window.location.pathname;
-    return path.split("/").pop().replace(".html", "");
+    const mood = path.split("/").pop().replace(".html", ""); 
+
+    console.log("Extracted mood:", mood);
+    return mood || null;
 }
 
 async function fetchSongsFromLocalServer(mood) {
@@ -19,37 +24,39 @@ function getRandomSongs(songs) {
     return [...songs].sort(() => 0.5 - Math.random()).slice(0, 5);
 }
 
-async function displaySongs(mood) {
-    const songsContainer = document.getElementById("songs-list");
-    songsContainer.innerHTML = "<p>Loading songs...</p>";
-
-    const songs = await fetchSongsFromLocalServer(mood);
-    console.log(`Fetched songs for ${mood}:`, songs);
-
-    if (!songs || songs.length === 0) {
-        songsContainer.innerHTML = "<p>No songs available for this mood.</p>";
+async function displaySongs() {
+    const mood = getMoodFromURL();
+    if (!mood) {
+        console.log("Mood not found.");
         return;
     }
 
-    const randomSongs = getRandomSongs(songs);
-    console.log(`Randomly selected songs:`, randomSongs);
-    songsContainer.innerHTML = "";
+    const songList = document.getElementById("song-list");
+    if (!songList) {
+        console.error("Song list container not found.");
+        return;
+    }
 
-    randomSongs.forEach(song => {
+    const songs = await fetchSongsFromLocalServer(mood);
+    if (songs.length === 0) {
+        songList.innerHTML = "<p>No songs available for this mood.</p>";
+        return;
+    }
+
+    songList.innerHTML = ""; // Clear previous songs
+
+    getRandomSongs(songs).forEach(song => {
         const songDiv = document.createElement("div");
         songDiv.innerHTML = `
             <p><strong>${song.title}</strong> - ${song.artist}</p>
             <a href="${song.url}" target="_blank">🎵 Listen</a>
         `;
-        songsContainer.appendChild(songDiv);
+        songList.appendChild(songDiv);
     });
 }
 
 async function handleMoodPage() {
-    const mood = getMoodFromURL();
-    if (mood) {
-        await displaySongs(mood);
-    }
+    await displaySongs();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -58,8 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const refreshButton = document.getElementById("refresh-songs");
     if (refreshButton) {
         refreshButton.addEventListener("click", async () => {
-            const mood = getMoodFromURL();
-            if (mood) await displaySongs(mood);
+            await displaySongs();
         });
     }
 });
